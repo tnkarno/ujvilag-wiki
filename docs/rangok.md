@@ -14,12 +14,11 @@ Az előrehaladásodat bármikor ellenőrizheted:
 - `/rangom` — jelenlegi rang és állapot
 - `/rangom KövetkezőRang` — adott rang feltételeinek megtekintése
 
-```
-┌──────────┐    ┌───────────┐    ┌───────────┐    ┌──────────┐
-│  VANDOR  │--->│  TELEPES  │--->│  UTTORO   │--->│  ORZO    │
-│  Feher   │    │  Zold     │    │  Kek      │    │  Lila    │
-│  Kezdo   │    │  Letelepul│    │  Befolyas │    │  Vegjatek│
-└──────────┘    └───────────┘    └───────────┘    └──────────┘
+```mermaid
+graph LR
+    A["⬜ VÁNDOR\nFehér\nKezdő"] --> B["🟩 TELEPES\nZöld\nLetelepül"]
+    B --> C["🔷 ÚTTÖRŐ\nKék\nBefolyás"]
+    C --> D["🟣 ŐRZŐ\nLila\nVégjáték"]
 ```
 
 ---
