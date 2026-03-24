@@ -90,20 +90,28 @@ A fővárosi piactér a szerver központja — ide érkezik minden játékos a `
 
 ## A kereskedelem folyamata
 
-```
-  ELADO                                     VEVO
-  ─────                                     ────
-  Beleteszi a targyat      ┌────────────┐   Megtalálja a boltot
-  a ladaba          ──────>│  LADABOLT  │<────── (kocsis/seta/warp)
-                           │            │
-  Beallitja az arat        │ Gy <--> Rk │   Kattint a vasarlasra
-  (gyemant/darab)          │            │
-                           └────────────┘
-  Gyemantot kap                             Targyat kap
-  (automatikusan az                         (automatikusan az
-   eszkoztarba/enderbe)                      eszkoztarba/enderbe)
+``` mermaid
+flowchart LR
+    subgraph elado ["🏪 ELADÓ"]
+        E1["Beleteszi a tárgyat\na ládába"]
+        E2["Beállítja az árat\n(gyémánt/darab)"]
+        E3["💎 Gyémántot kap\n(automatikusan)"]
+    end
 
-  Gy = Gyemant    Rk = Rakomany (targy)
+    E1 --> BOLT
+    E2 --> BOLT
+    BOLT["🏪 LÁDABOLT\n(💎 ↔ 📦)"]
+    BOLT --> E3
+
+    subgraph vevo ["🛒 VEVŐ"]
+        V1["Megtalálja a boltot\n(kocsis/séta/warp)"]
+        V2["Kattint a vásárlásra"]
+        V3["📦 Tárgyat kap\n(automatikusan)"]
+    end
+
+    V1 --> BOLT
+    V2 --> BOLT
+    BOLT --> V3
 ```
 
 A tranzakció **autómatikus** — a [gazdasági rendszer](gazdasag.md) kezeli a gyémánt mozgatását mindkét fél között.

@@ -10,17 +10,19 @@
 
 Az Újvilágban többféle utazási mód áll rendelkezésre. Néhány ingyenes, mások [gyémántba](gazdasag.md) kerülnek. A rendszer úgy van kialakítva, hogy a távolság **számítson** — nem teleportálhatsz bárhová ingyen, de a fontos helyek mindig elérhetők.
 
-```
-┌────────────────── UTAZASI MODOK ──────────────-────┐
-│                                                    │
-│  INGYENES:                FIZETOS:                 │
-│   /otthon (hatarko)       Kocsis (megallok         │
-│   /fovaros                 kozott, ~gyemant)       │
-│   Fogadok (/eszak,       Jatekos-latogatas         │
-│    /del, /nyugat,          (Telepes rangtol,       │
-│    /kelet)                  ~4 gyemant)            │
-│                                                    │
-└────────────────────────────────────────────────────┘
+``` mermaid
+flowchart TB
+    subgraph free ["🆓 INGYENES"]
+        direction TB
+        A["/otthon\n(határkő)"]
+        B["/fovaros"]
+        C["Fogadók\n(/eszak, /del,\n/nyugat, /kelet)"]
+    end
+    subgraph paid ["💎 FIZETŐS"]
+        direction TB
+        D["Kocsis\n(megállók között,\n~gyémánt)"]
+        E["Játékos-látogatás\n(Telepes rangtól,\n~4 gyémánt)"]
+    end
 ```
 
 ---
@@ -139,38 +141,29 @@ Több otthonod van? Listázd őket:
 
 ## Utazási rendszer diagram
 
-```
-                     ┌──────────────┐
-                     │   FOVAROS    │
-                     │  (ingyenes)  │
-                     └──────┬───────┘
-                            │
-         ┌─────────┬────────┼────────┬─────────┐
-         v         v        v        v         v
-   ┌─────────┐ ┌──────┐ ┌──────┐ ┌──────┐ ┌─────────┐
-   │ E.Fogado│ │D.Fog.│ │Warp- │ │Ny.Fog│ │ K.Fogado│
-   │ (ingyen)│ │(ing.)│ │ ok   │ │(ing.)│ │ (ingyen)│
-   └─────────┘ └──────┘ └──────┘ └──────┘ └─────────┘
+``` mermaid
+flowchart TD
+    FV["🏰 FŐVÁROS\n(ingyenes)"]
+    FV --> EF["Északi Fogadó\n(ingyenes)"]
+    FV --> DF["Déli Fogadó\n(ingyenes)"]
+    FV --> WP["Warpok"]
+    FV --> NF["Nyugati Fogadó\n(ingyenes)"]
+    FV --> KF["Keleti Fogadó\n(ingyenes)"]
 
-   ┌─────────────────────────────────────────┐
-   │            KOCSIS HALOZAT               │
-   │  Megallo <--- gyemant ---> Megallo      │
-   │    ^                         ^          │
-   │    |        gyemant          |          │
-   │    v                         v          │
-   │  Megallo <--- gyemant ---> Megallo      │
-   └─────────────────────────────────────────┘
+    subgraph kocsis ["🐴 KOCSIS HÁLÓZAT"]
+        M1["Megálló"] -- "💎 gyémánt" --- M2["Megálló"]
+        M3["Megálló"] -- "💎 gyémánt" --- M4["Megálló"]
+        M1 -- "💎 gyémánt" --- M3
+        M2 -- "💎 gyémánt" --- M4
+    end
 
-   ┌─────────────────────────────────────────┐
-   │          JATEKOS-LATOGATAS              │
-   │  Jatekos A <-- 4 gyemant --> Jatekos B │
-   │          (Telepes rangtol)              │
-   └─────────────────────────────────────────┘
+    subgraph latogatas ["👥 JÁTÉKOS-LÁTOGATÁS"]
+        JA["Játékos A"] -- "💎 4 gyémánt\n(Telepes rangtól)" --- JB["Játékos B"]
+    end
 
-   ┌─────────────────────────────────────────┐
-   │            HAZAUTAZAS                   │
-   │  Barhol ------- INGYENES -----> HK     │
-   └─────────────────────────────────────────┘
+    subgraph haza ["🏠 HAZAUTAZÁS"]
+        BH["Bárhol"] -- "INGYENES" --> HK["Határkő"]
+    end
 ```
 
 ---

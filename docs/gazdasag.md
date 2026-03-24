@@ -23,19 +23,20 @@ Ez a megoldás azt jelenti, hogy:
 
 Az economy plugin a gyémántot jelöli meg valutaként. Amikor fizetsz vagy neked fizetnek, a rendszer **automatikusan kezeli** a gyémántjaidat:
 
-```
-Fizetéskor a rendszer innen veszi a gyémántot:
-┌─────────────┐     ┌──────────────┐     ┌──────────────────┐
-│  Eszköztár  │ ──▶ │  Ender láda  │ ──▶ │  Shulker ládák   │
-│  (hotbar +  │     │              │     │  (eszköztárban   │
-│   inventory)│     │              │     │   vagy enderben) │
-└─────────────┘     └──────────────┘     └──────────────────┘
+**Fizetéskor a rendszer innen veszi a gyémántot:**
 
-Fizetés fogadásakor a rendszer ide teszi:
-┌──────────────────────────────────────────────────────────┐
-│  Az első elérhető shulker ládába, ha van                 │
-│  Ha nincs shulker → eszköztár / ender láda               │
-└──────────────────────────────────────────────────────────┘
+``` mermaid
+flowchart LR
+    A["🎒 Eszköztár\n(hotbar + inventory)"] --> B["📦 Ender láda"] --> C["🧱 Shulker ládák\n(eszköztárban\nvagy enderben)"]
+```
+
+**Fizetés fogadásakor a rendszer ide teszi:**
+
+``` mermaid
+flowchart LR
+    D["💎 Kapott gyémánt"] --> E{"Van shulker\nláda?"}
+    E -- Igen --> F["Első elérhető\nshulker láda"]
+    E -- Nem --> G["Eszköztár /\nEnder láda"]
 ```
 
 A rendszer automatikusan megtalálja a gyémántjaidat és a megfelelő helyre rakja a kapott gyémántokat. Természetesen **blokkosít** is — azaz 9 gyémánt automatikusan gyémánt blokká alakul a hatékonyabb tárolás érdekében.
@@ -87,36 +88,15 @@ A gyémánt valuta értékét az tartja fenn, hogy **rendszeres kiadásaid vanna
 
 ## A gazdaság áttekintő diagramja
 
-```
-                 ┌──────────────┐
-                 │  BANYASZAT   │
-                 │  (gyemant    │
-                 │   termeles)  │
-                 └──────┬───────┘
-                        │
-                        v
-              ┌──────────────────┐
-              │  JATEKOS         │
-              │  EGYENLEG        │
-              │  (fizikai        │
-              │   gyemant)       │
-              └───┬────┬────┬────┘
-                  │    │    │
-        ┌─────────┘    │    └─────────┐
-        v              v              v
-  ┌──────────┐  ┌──────────┐  ┌──────────┐
-  │ Hatarko  │  │ Kocsis   │  │ Osi      │
-  │ fenntart.│  │ utazas   │  │ buvoles  │
-  │ (sink)   │  │ (sink)   │  │ (sink)   │
-  └──────────┘  └──────────┘  └──────────┘
-        │              │              │
-        └──────────────┼──────────────┘
-                       v
-              ┌──────────────────┐
-              │ GYEMANT ELTUNIK  │
-              │ (inflacio-       │
-              │  vedelem)        │
-              └──────────────────┘
+``` mermaid
+flowchart TD
+    A["⛏️ BÁNYÁSZAT\n(gyémánt termelés)"] --> B["💎 JÁTÉKOS EGYENLEG\n(fizikai gyémánt)"]
+    B --> C["🪨 Határkő\nfenntartás\n(sink)"]
+    B --> D["🐴 Kocsis\nutazás\n(sink)"]
+    B --> E["🔮 Ősi\nbűvölés\n(sink)"]
+    C --> F["🚫 GYÉMÁNT ELTŰNIK\n(infláció-védelem)"]
+    D --> F
+    E --> F
 ```
 
 A rendszer tehát **zárt kör**: a gyémánt bányászattal jön létre, különféle szolgáltatások elnyelik, és ez tartja fenn az értékét. Nincs infláció, mert a sink-ek folyamatosan vonják ki a gyémántot a forgalomból.
