@@ -29,8 +29,8 @@ theme:
     - search.suggest
     - search.highlight
     - content.tabs.link
-  icon:
-    logo: material/sword-cross
+  logo: assets/logo.png
+  favicon: assets/logo.png
 
 nav:
   - Főoldal: index.md
