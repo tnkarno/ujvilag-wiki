@@ -78,9 +78,11 @@ flowchart TD
     B --> C["🪨 Határkő\nfenntartás\n(sink)"]
     B --> D["🐴 Kocsis\nutazás\n(sink)"]
     B --> E["🔮 Ősi\nbűvölés\n(sink)"]
+    B --> I["📦 Láda\nboltok\n(sink)"]
     C --> F["🚫 GYÉMÁNT ELTŰNIK\n(infláció-védelem)"]
     D --> F
     E --> F
+    I --> F
 ```
 
 A rendszer tehát **zárt kör**: a gyémánt bányászattal jön létre, különféle szolgáltatások elnyelik, és ez tartja fenn az értékét. Nincs infláció, mert a sink-ek folyamatosan vonják ki a gyémántot a forgalomból.

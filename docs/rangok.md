@@ -16,9 +16,9 @@ Az előrehaladásodat bármikor ellenőrizheted:
 
 ```mermaid
 graph LR
-    A["⬜ VÁNDOR\nFehér\nKezdő"] --> B["🟩 TELEPES\nZöld\nLetelepül"]
-    B --> C["🔷 ÚTTÖRŐ\nKék\nBefolyás"]
-    C --> D["🟣 ŐRZŐ\nLila\nVégjáték"]
+    A["⬜ VÁNDOR\nKezdő"] --> B["🟩 TELEPES\nLetelepül"]
+    B --> C["🔷 ÚTTÖRŐ\nBefolyás"]
+    C --> D["🟣 ŐRZŐ\nVégjáték"]
 ```
 
 ---

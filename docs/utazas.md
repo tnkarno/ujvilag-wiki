@@ -10,20 +10,11 @@
 
 Az Újvilágban többféle utazási mód áll rendelkezésre. Néhány ingyenes, mások [gyémántba](gazdasag.md) kerülnek. A rendszer úgy van kialakítva, hogy a távolság **számítson** — nem teleportálhatsz bárhová ingyen, de a fontos helyek mindig elérhetők.
 
-``` mermaid
-flowchart TB
-    subgraph free ["🆓 INGYENES"]
-        direction TB
-        A["/otthon\n(határkő)"]
-        B["/fovaros"]
-        C["Fogadók\n(/eszak, /del,\n/nyugat, /kelet)"]
-    end
-    subgraph paid ["💎 FIZETŐS"]
-        direction TB
-        D["Kocsis\n(megállók között,\n~gyémánt)"]
-        E["Játékos-látogatás\n(Telepes rangtól,\n~4 gyémánt)"]
-    end
-```
+| Ingyenes | Fizetős |
+|---|---|
+| `/otthon` — hazateleport a [határkőhöz](hatarkovek.md) | **Kocsis** — megállók között, pár gyémánt |
+| `/fovaros` — spawn pont, bárhonnan | **Játékos-látogatás** — Telepes rangtól, ~4 gyémánt |
+| **Fogadók** — `/eszak`, `/del`, `/nyugat`, `/kelet` | |
 
 ---
 
@@ -139,32 +130,21 @@ Több otthonod van? Listázd őket:
 
 ---
 
-## Utazási rendszer diagram
+## Gyors áttekintés
 
-``` mermaid
-flowchart TD
-    FV["🏰 FŐVÁROS\n(ingyenes)"]
-    FV --> EF["Északi Fogadó\n(ingyenes)"]
-    FV --> DF["Déli Fogadó\n(ingyenes)"]
-    FV --> WP["Warpok"]
-    FV --> NF["Nyugati Fogadó\n(ingyenes)"]
-    FV --> KF["Keleti Fogadó\n(ingyenes)"]
-
-    subgraph kocsis ["🐴 KOCSIS HÁLÓZAT"]
-        M1["Megálló"] -- "💎 gyémánt" --- M2["Megálló"]
-        M3["Megálló"] -- "💎 gyémánt" --- M4["Megálló"]
-        M1 -- "💎 gyémánt" --- M3
-        M2 -- "💎 gyémánt" --- M4
-    end
-
-    subgraph latogatas ["👥 JÁTÉKOS-LÁTOGATÁS"]
-        JA["Játékos A"] -- "💎 4 gyémánt\n(Telepes rangtól)" --- JB["Játékos B"]
-    end
-
-    subgraph haza ["🏠 HAZAUTAZÁS"]
-        BH["Bárhol"] -- "INGYENES" --> HK["Határkő"]
-    end
-```
+| Utazási mód | Parancs | Költség | Feltétel |
+|---|---|---|---|
+| Főváros | `/fovaros` | Ingyenes | — |
+| Északi fogadó | `/eszak` | Ingyenes | — |
+| Déli fogadó | `/del` | Ingyenes | — |
+| Nyugati fogadó | `/nyugat` | Ingyenes | — |
+| Keleti fogadó | `/kelet` | Ingyenes | — |
+| Összes úticél | `/uticelok` | Ingyenes | — |
+| Hazautazás | `/otthon` | Ingyenes | Lerakott [határkő](hatarkovek.md) |
+| Kocsis utazás | `/kocsis megállónév` | Pár gyémánt | Megálló szükséges |
+| Kocsis megállók | `/megallok` | — | — |
+| Játékos-látogatás | `/utazas játékosnév` | ~4 gyémánt | [Telepes](rangok.md#-telepes) rang |
+| Meghívás küldése | `/meghivas játékosnév` | ~4 gyémánt | [Telepes](rangok.md#-telepes) rang |
 
 ---
 
