@@ -38,43 +38,83 @@ A határkő **egyedi recepttel** készíthető. Minden [rangnak](rangok.md) saj�
 
 ### Vándor határkő
 
-``` mermaid
-block-beta
-    columns 3
-    a["Diorit"] b["Csiszolt Kő"] c["Diorit"]
-    d["Csiszolt Kő"] e["Arany blokk"] f["Csiszolt Kő"]
-    g["Diorit"] h["Csiszolt Kő"] i["Diorit"]
-```
+<table class="crafting-grid">
+<tr>
+<td><img src="../assets/diorite.webp" title="Diorit"></td>
+<td><img src="../assets/smooth_stone.webp" title="Csiszolt Kő"></td>
+<td><img src="../assets/diorite.webp" title="Diorit"></td>
+</tr>
+<tr>
+<td><img src="../assets/smooth_stone.webp" title="Csiszolt Kő"></td>
+<td><img src="../assets/gold_block.webp" title="Arany blokk"></td>
+<td><img src="../assets/smooth_stone.webp" title="Csiszolt Kő"></td>
+</tr>
+<tr>
+<td><img src="../assets/diorite.webp" title="Diorit"></td>
+<td><img src="../assets/smooth_stone.webp" title="Csiszolt Kő"></td>
+<td><img src="../assets/diorite.webp" title="Diorit"></td>
+</tr>
+</table>
 
 ### Telepes határkő
 
-``` mermaid
-block-beta
-    columns 3
-    a["Moha blokk"] b["Vas blokk"] c["Moha blokk"]
-    d["Vas blokk"] e["Smaragd blokk"] f["Vas blokk"]
-    g["Moha blokk"] h["Vas blokk"] i["Moha blokk"]
-```
+<table class="crafting-grid">
+<tr>
+<td><img src="../assets/moss_block.webp" title="Moha blokk"></td>
+<td><img src="../assets/iron_block.webp" title="Vas blokk"></td>
+<td><img src="../assets/moss_block.webp" title="Moha blokk"></td>
+</tr>
+<tr>
+<td><img src="../assets/iron_block.webp" title="Vas blokk"></td>
+<td><img src="../assets/emerald_block.webp" title="Smaragd blokk"></td>
+<td><img src="../assets/iron_block.webp" title="Vas blokk"></td>
+</tr>
+<tr>
+<td><img src="../assets/moss_block.webp" title="Moha blokk"></td>
+<td><img src="../assets/iron_block.webp" title="Vas blokk"></td>
+<td><img src="../assets/moss_block.webp" title="Moha blokk"></td>
+</tr>
+</table>
 
 ### Úttörő határkő
 
-``` mermaid
-block-beta
-    columns 3
-    a["Lazurit blokk"] b["Feketekő"] c["Lazurit blokk"]
-    d["Feketekő"] e["Gyémánt blokk"] f["Feketekő"]
-    g["Lazurit blokk"] h["Feketekő"] i["Lazurit blokk"]
-```
+<table class="crafting-grid">
+<tr>
+<td><img src="../assets/lazurit_block.webp" title="Lazurit blokk"></td>
+<td><img src="../assets/blackstone.webp" title="Feketekő"></td>
+<td><img src="../assets/lazurit_block.webp" title="Lazurit blokk"></td>
+</tr>
+<tr>
+<td><img src="../assets/blackstone.webp" title="Feketekő"></td>
+<td><img src="../assets/diamond_block.webp" title="Gyémánt blokk"></td>
+<td><img src="../assets/blackstone.webp" title="Feketekő"></td>
+</tr>
+<tr>
+<td><img src="../assets/lazurit_block.webp" title="Lazurit blokk"></td>
+<td><img src="../assets/blackstone.webp" title="Feketekő"></td>
+<td><img src="../assets/lazurit_block.webp" title="Lazurit blokk"></td>
+</tr>
+</table>
 
 ### Őrző határkő
 
-``` mermaid
-block-beta
-    columns 3
-    a["Ametiszt blokk"] b["Obszidián"] c["Ametiszt blokk"]
-    d["Obszidián"] e["Netherite blokk"] f["Obszidián"]
-    g["Ametiszt blokk"] h["Obszidián"] i["Ametiszt blokk"]
-```
+<table class="crafting-grid">
+<tr>
+<td><img src="../assets/amethyst_block.webp" title="Ametiszt blokk"></td>
+<td><img src="../assets/obisdian.webp" title="Obszidián"></td>
+<td><img src="../assets/amethyst_block.webp" title="Ametiszt blokk"></td>
+</tr>
+<tr>
+<td><img src="../assets/obisdian.webp" title="Obszidián"></td>
+<td><img src="../assets/netherite_block.webp" title="Netherite blokk"></td>
+<td><img src="../assets/obisdian.webp" title="Obszidián"></td>
+</tr>
+<tr>
+<td><img src="../assets/amethyst_block.webp" title="Ametiszt blokk"></td>
+<td><img src="../assets/obisdian.webp" title="Obszidián"></td>
+<td><img src="../assets/amethyst_block.webp" title="Ametiszt blokk"></td>
+</tr>
+</table>
 
 ---
 

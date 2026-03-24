@@ -23,22 +23,6 @@ Ez a megoldás azt jelenti, hogy:
 
 Az economy plugin a gyémántot jelöli meg valutaként. Amikor fizetsz vagy neked fizetnek, a rendszer **automatikusan kezeli** a gyémántjaidat:
 
-**Fizetéskor a rendszer innen veszi a gyémántot:**
-
-``` mermaid
-flowchart LR
-    A["🎒 Eszköztár\n(hotbar + inventory)"] --> B["📦 Ender láda"] --> C["🧱 Shulker ládák\n(eszköztárban\nvagy enderben)"]
-```
-
-**Fizetés fogadásakor a rendszer ide teszi:**
-
-``` mermaid
-flowchart LR
-    D["💎 Kapott gyémánt"] --> E{"Van shulker\nláda?"}
-    E -- Igen --> F["Első elérhető\nshulker láda"]
-    E -- Nem --> G["Eszköztár /\nEnder láda"]
-```
-
 A rendszer automatikusan megtalálja a gyémántjaidat és a megfelelő helyre rakja a kapott gyémántokat. Természetesen **blokkosít** is — azaz 9 gyémánt automatikusan gyémánt blokká alakul a hatékonyabb tárolás érdekében.
 
 ### Egyenleg és nyilvántartás
