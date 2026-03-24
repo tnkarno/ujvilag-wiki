@@ -43,7 +43,8 @@ A világ négy égtájánál egy-egy fogadó áll, néhány ezer blokkra a spawn
 
 **Költség:** Ingyenes.
 
-**Tipp új játékosoknak:** A [Gyors indulás](gyors-indulas.md) oldalon ajánljuk, hogy a fogadókat használd kiindulópontként a tökéletes helyszín megtalálásához. Mindegyik más-más biomban van — válaszd azt, ami a legjobban tetszik!
+!!! tip "Tipp új játékosoknak"
+    A [Gyors indulás](gyors-indulas.md) oldalon ajánljuk, hogy a fogadókat használd kiindulópontként a tökéletes helyszín megtalálásához. Mindegyik más-más biomban van — válaszd azt, ami a legjobban tetszik!
 
 ---
 

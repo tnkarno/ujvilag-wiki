@@ -51,7 +51,8 @@ Minden mesterség megszerzéséhez teljesítened kell egy **gyűjtési/elérési
 | Törhetetlenség (Unbreaking) | III (3) | X (10) |
 | Szerencse (Fortune) | III (3) | X (10) |
 
-**Fontos:** Minden újabb szint emelése **egyre nagyobb [gyémánt](gazdasag.md), lazurit és xp szint költséggel** jár. Ez nem olcsó mulatság — gondolkodj befektetésként!
+!!! important "Fontos"
+    Minden újabb szint emelése **egyre nagyobb [gyémánt](gazdasag.md), lazurit és xp szint költséggel** jár. Ez nem olcsó mulatság — gondolkodj befektetésként!
 
 ---
 

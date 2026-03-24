@@ -175,9 +175,11 @@ A beállítások részletes listáját a `/hk help` parancs adja meg.
 
 **Minden határkövet 4 naponta 1 gyémánttal kell feltölteni**, rangtól és mérettől függetlenül. Ez a [gazdasági rendszer](gazdasag.md) egyik sink-je, amely segít fenntartani a gyémánt értékét.
 
-FIGYELEM! Ha elfelejtesz feltölteni: A védelem megszűnik, es a területedd védtelenné valik! (A szabályzat szerint védtelen területről lopni szabad.)
+!!! warning "Figyelem!"
+    Ha elfelejtesz feltölteni: A védelem megszűnik, és a területed védtelenné válik! (A szabályzat szerint védtelen területről lopni szabad.)
 
-**Tipp:** Tartsd szemmel a határkő állapotát, és tartsd készenlétben a gyémántjaidat. A fenntartás a szerver egyik legfontosabb rendszeres kiadása.
+!!! tip "Tipp"
+    Tartsd szemmel a határkő állapotát, és tartsd készenlétben a gyémántjaidat. A fenntartás a szerver egyik legfontosabb rendszeres kiadása.
 
 ---
 

@@ -36,7 +36,8 @@ Egyszerűen **törd össze a ládát** — a bolt megszűnik.
 | `/chestshop create boltnév` | Új bolt létrehozása |
 | `/ladabolt` | Bemutató bolt meglátogatása |
 
-**Tipp:** Mielőtt boltot nyitsz, látogasd meg a **ládabolt bemutatót** (`/ladabolt` vagy `/warp LadaBoltInfo`). Itt megtudod, hogyan működik a rendszer, és kipróbálhatod élesben is.
+!!! tip "Tipp"
+    Mielőtt boltot nyitsz, látogasd meg a **ládabolt bemutatót** (`/ladabolt` vagy `/warp LadaBoltInfo`). Itt megtudod, hogyan működik a rendszer, és kipróbálhatod élesben is.
 
 ---
 
@@ -90,29 +91,9 @@ A fővárosi piactér a szerver központja — ide érkezik minden játékos a `
 
 ## A kereskedelem folyamata
 
-``` mermaid
-flowchart LR
-    subgraph elado ["🏪 ELADÓ"]
-        E1["Beleteszi a tárgyat\na ládába"]
-        E2["Beállítja az árat\n(gyémánt/darab)"]
-        E3["💎 Gyémántot kap\n(automatikusan)"]
-    end
+**Eladó:** Láda lerakása → Ár beállítása → Tárgyak berakása → Gyémántot kap automatikusan
 
-    E1 --> BOLT
-    E2 --> BOLT
-    BOLT["🏪 LÁDABOLT\n(💎 ↔ 📦)"]
-    BOLT --> E3
-
-    subgraph vevo ["🛒 VEVŐ"]
-        V1["Megtalálja a boltot\n(kocsis/séta/warp)"]
-        V2["Kattint a vásárlásra"]
-        V3["📦 Tárgyat kap\n(automatikusan)"]
-    end
-
-    V1 --> BOLT
-    V2 --> BOLT
-    BOLT --> V3
-```
+**Vevő:** Bolt megtalálása → Kattintás a vásárlásra → Tárgyat kap, gyémánt levonódik
 
 A tranzakció **autómatikus** — a [gazdasági rendszer](gazdasag.md) kezeli a gyémánt mozgatását mindkét fél között.
 

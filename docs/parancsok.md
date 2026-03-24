@@ -122,23 +122,20 @@ A chat támogatja az **interaktív funkciókat**: megemlítés (@játékosnév),
 
 A leggyakrabban használt parancsok egy helyen:
 
-``` mermaid
-flowchart LR
-    subgraph ref ["GYORS REFERENCIA"]
-        direction TB
-        A["🏠 /otthon — Hazautazás"]
-        B["🏰 /fovaros — Főváros"]
-        C["🗺️ /uticelok — Úticélok"]
-        D["🐴 /megallok — Kocsis megállók"]
-        E["📊 /rangom — Rang előrehaladás"]
-        F["💎 /bal — Egyenleg"]
-        G["🏪 /chestshop help — Bolt segítség"]
-        H["🪨 /hk help — Határkő segítség"]
-        I["📋 /sb — Info panel"]
-    end
-```
+| Parancs | Funkció |
+|---|---|
+| `/otthon` | Hazautazás a határkőhöz |
+| `/fovaros` | Visszatérés a fővárosba |
+| `/uticelok` | Összes úticél listája |
+| `/megallok` | Kocsis megállók listája |
+| `/rangom` | Rang előrehaladás megtekintése |
+| `/bal` | Gyémánt egyenleg |
+| `/chestshop help` | Ládabolt segítség |
+| `/hk help` | Határkő segítség |
+| `/sb` | Információs panel |
 
-*Tipp: Szinte minden kattintható a chatben!*
+!!! tip "Tipp"
+    Szinte minden kattintható a chatben!
 
 ---
 
