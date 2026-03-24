@@ -38,46 +38,54 @@ A határkő **egyedi recepttel** készíthető. Minden [rangnak](rangok.md) saj�
 
 ### Vándor határkő
 
+<div class="crafting-container">
+<div class="crafting-header">Barkácsolás</div>
 <table class="crafting-grid">
 <tr>
-<td><img src="../assets/diorite.webp" title="Diorit"></td>
 <td><img src="../assets/smooth_stone.webp" title="Csiszolt Kő"></td>
 <td><img src="../assets/diorite.webp" title="Diorit"></td>
+<td><img src="../assets/smooth_stone.webp" title="Csiszolt Kő"></td>
 </tr>
 <tr>
-<td><img src="../assets/smooth_stone.webp" title="Csiszolt Kő"></td>
+<td><img src="../assets/diorite.webp" title="Diorit"></td>
 <td><img src="../assets/gold_block.webp" title="Arany blokk"></td>
-<td><img src="../assets/smooth_stone.webp" title="Csiszolt Kő"></td>
+<td><img src="../assets/diorite.webp" title="Diorit"></td>
 </tr>
 <tr>
-<td><img src="../assets/diorite.webp" title="Diorit"></td>
 <td><img src="../assets/smooth_stone.webp" title="Csiszolt Kő"></td>
 <td><img src="../assets/diorite.webp" title="Diorit"></td>
+<td><img src="../assets/smooth_stone.webp" title="Csiszolt Kő"></td>
 </tr>
 </table>
+</div>
 
 ### Telepes határkő
 
+<div class="crafting-container">
+<div class="crafting-header">Barkácsolás</div>
 <table class="crafting-grid">
 <tr>
-<td><img src="../assets/moss_block.webp" title="Moha blokk"></td>
 <td><img src="../assets/iron_block.webp" title="Vas blokk"></td>
 <td><img src="../assets/moss_block.webp" title="Moha blokk"></td>
+<td><img src="../assets/iron_block.webp" title="Vas blokk"></td>
 </tr>
 <tr>
-<td><img src="../assets/iron_block.webp" title="Vas blokk"></td>
+<td><img src="../assets/moss_block.webp" title="Moha blokk"></td>
 <td><img src="../assets/emerald_block.webp" title="Smaragd blokk"></td>
-<td><img src="../assets/iron_block.webp" title="Vas blokk"></td>
+<td><img src="../assets/moss_block.webp" title="Moha blokk"></td>
 </tr>
 <tr>
-<td><img src="../assets/moss_block.webp" title="Moha blokk"></td>
 <td><img src="../assets/iron_block.webp" title="Vas blokk"></td>
 <td><img src="../assets/moss_block.webp" title="Moha blokk"></td>
+<td><img src="../assets/iron_block.webp" title="Vas blokk"></td>
 </tr>
 </table>
+</div>
 
 ### Úttörő határkő
 
+<div class="crafting-container">
+<div class="crafting-header">Barkácsolás</div>
 <table class="crafting-grid">
 <tr>
 <td><img src="../assets/lazurit_block.webp" title="Lazurit blokk"></td>
@@ -95,9 +103,12 @@ A határkő **egyedi recepttel** készíthető. Minden [rangnak](rangok.md) saj�
 <td><img src="../assets/lazurit_block.webp" title="Lazurit blokk"></td>
 </tr>
 </table>
+</div>
 
 ### Őrző határkő
 
+<div class="crafting-container">
+<div class="crafting-header">Barkácsolás</div>
 <table class="crafting-grid">
 <tr>
 <td><img src="../assets/amethyst_block.webp" title="Ametiszt blokk"></td>
@@ -115,6 +126,7 @@ A határkő **egyedi recepttel** készíthető. Minden [rangnak](rangok.md) saj�
 <td><img src="../assets/amethyst_block.webp" title="Ametiszt blokk"></td>
 </tr>
 </table>
+</div>
 
 ---
 
@@ -179,13 +191,26 @@ Ha a sírhely jegy az **inventorydban van** halálkor, a tárgyaid **egy sírhel
 
 ### Crafting recept
 
-``` mermaid
-block-beta
-    columns 3
-    a["Aranyrög"] b["Aranyrög"] c["Aranyrög"]
-    d["Aranyrög"] e["Gyémánt"] f["Aranyrög"]
-    g["Aranyrög"] h["Aranyrög"] i["Aranyrög"]
-```
+<div class="crafting-container">
+<div class="crafting-header">Barkácsolás</div>
+<table class="crafting-grid">
+<tr>
+<td><img src="../assets/gold_nugget.webp" title="Aranyrög"></td>
+<td><img src="../assets/gold_nugget.webp" title="Aranyrög"></td>
+<td><img src="../assets/gold_nugget.webp" title="Aranyrög"></td>
+</tr>
+<tr>
+<td><img src="../assets/gold_nugget.webp" title="Aranyrög"></td>
+<td><img src="../assets/diamond.webp" title="Gyémánt"></td>
+<td><img src="../assets/gold_nugget.webp" title="Aranyrög"></td>
+</tr>
+<tr>
+<td><img src="../assets/gold_nugget.webp" title="Aranyrög"></td>
+<td><img src="../assets/gold_nugget.webp" title="Aranyrög"></td>
+<td><img src="../assets/gold_nugget.webp" title="Aranyrög"></td>
+</tr>
+</table>
+</div>
 
 **Recept:** 8 aranyrög + 1 gyémánt (középen)
 

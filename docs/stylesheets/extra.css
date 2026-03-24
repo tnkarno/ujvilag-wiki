@@ -1,8 +1,24 @@
+.crafting-container {
+  display: inline-block;
+  background: #c6c6c6;
+  border: 3px solid;
+  border-color: #fff #555 #555 #fff;
+  border-radius: 4px;
+  padding: 8px;
+  margin: 8px 0;
+}
+
+.crafting-header {
+  font-weight: bold;
+  font-size: 0.85rem;
+  color: #404040;
+  margin-bottom: 6px;
+}
+
 .crafting-grid {
   border-collapse: collapse;
   background: #8b8b8b;
-  border: 4px solid #555;
-  border-radius: 4px;
+  border: 2px solid #555;
 }
 
 .crafting-grid td {
