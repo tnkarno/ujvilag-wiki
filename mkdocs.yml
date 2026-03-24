@@ -1,0 +1,68 @@
+site_name: Újvilág Birodalom Wiki
+site_description: Vanilla-közeli, békés Minecraft szerver felnőtt közösséggel
+site_url: https://FELHASZNALONEV.github.io/ujvilag-wiki/
+
+theme:
+  name: material
+  language: hu
+  palette:
+    - scheme: slate
+      primary: deep purple
+      accent: amber
+      toggle:
+        icon: material/brightness-4
+        name: Világos mód
+    - scheme: default
+      primary: deep purple
+      accent: amber
+      toggle:
+        icon: material/brightness-7
+        name: Sötét mód
+  font:
+    text: Roboto
+    code: Roboto Mono
+  features:
+    - navigation.instant
+    - navigation.tracking
+    - navigation.sections
+    - navigation.top
+    - search.suggest
+    - search.highlight
+    - content.tabs.link
+  icon:
+    logo: material/sword-cross
+
+nav:
+  - Főoldal: index.md
+  - Gyors indulás: gyors-indulas.md
+  - Rangrendszer: rangok.md
+  - Gazdasági rendszer: gazdasag.md
+  - Határkövek: hatarkovek.md
+  - Utazás: utazas.md
+  - Ládaboltok és Piactér: piacter.md
+  - Ősi Bűvölés: osi-mestersegek.md
+  - Szabályzat: szabalyzat.md
+  - Parancsok: parancsok.md
+  - Szerver infó: szerver-info.md
+
+plugins:
+  - search:
+      lang: hu
+
+markdown_extensions:
+  - tables
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+  - attr_list
+  - md_in_html
+  - toc:
+      permalink: true
+
+extra:
+  social:
+    - icon: fontawesome/brands/discord
+      link: https://discord.gg/MdBWZhAgCy
+      name: Discord
