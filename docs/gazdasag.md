@@ -66,6 +66,9 @@ A gazdaság három fizikai tárgyat használ valutaként:
 !!! tip "Miért gyémántrög?"
     A gyémántrög segítségével pontosabb árakat tudsz megadni a [ládaboltodban](piacter.md). Ha például egy termék 3 rögöt ér, azt eddig nem lehetett kifejezni — most viszont igen. Az árképzés alapja mindig a **gyémántrög**.
 
+!!! info "Resource pack a gyémántrög megjelenítéséhez"
+    Ahhoz, hogy a gyémántrög a játékban is helyesen jelenjen meg, töltsd le és használd a szerver resource packját: **[Resource pack letöltése](https://download.mc-packs.net/pack/e4ef1bff27bce59e15b183ea58186da4895e5f0c.zip)**
+
 ### Egyenleg és nyilvántartás
 
 | Parancs | Funkció |
