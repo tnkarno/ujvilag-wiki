@@ -8,12 +8,13 @@
 
 ## Alapelvek
 
-Az Újvilág gazdasági rendszere egyetlen egyszerű elvre épül: **a gyémánt a valuta.** Nem virtuális pénz, nem token, nem pont — hanem a fizikai gyémánt item, amit kézzel kell kibányásznod.
+Az Újvilág gazdasági rendszere egyetlen egyszerű elvre épül: **a gyémánt a valuta.** Nem virtuális pénz, nem token, nem pont — hanem a fizikai gyémánt item, amit kézzel kell kibányásznod. Az árképzés alapegysége a **gyémántrög**, amelyből 9 darab ad ki egy gyémántot.
 
 Ez a megoldás azt jelenti, hogy:
 - **Nem farmolható automatikusan** — a gyémánt értékét a befektetett munka adja
 - **Vannak sink-ek** (gyémánt-elnyelők) a rendszerben, így **nem lesz infláció**
 - **Minden tranzakció valós** — amit fizetsz vagy kapsz, az tényleg a tárhelyeden jelenik meg
+- **Pontos árképzés** — a gyémántrögnek köszönhetően 1 gyémántnál kisebb értékek is kifejezhetők
 
 ---
 
@@ -24,6 +25,46 @@ Ez a megoldás azt jelenti, hogy:
 Az economy plugin a gyémántot jelöli meg valutaként. Amikor fizetsz vagy neked fizetnek, a rendszer **automatikusan kezeli** a gyémántjaidat:
 
 A rendszer automatikusan megtalálja a gyémántjaidat és a megfelelő helyre rakja a kapott gyémántokat. Természetesen **blokkosít** is — azaz 9 gyémánt automatikusan gyémánt blokká alakul a hatékonyabb tárolás érdekében.
+
+### Gyémántrög — az árképzés alapegysége
+
+A szerveren elérhető a **gyémántrög** (<img src="../assets/diamond_nugget.png" style="height:1.2em;vertical-align:middle;image-rendering:pixelated"> ), amely ugyanúgy működik, mint az aranyrög az arany esetén. A gyémántrög lehetővé teszi a **törtértékű árképzést** — azaz olyan termékek és szolgáltatások árazását, amelyek kevesebbet érnek, mint 1 teljes gyémánt.
+
+A gazdaság három fizikai tárgyat használ valutaként:
+
+| Tárgy | Kép | Érték | Leírás |
+|---|---|---|---|
+| **Gyémántrög** | <img src="../assets/diamond_nugget.png" style="height:24px;image-rendering:pixelated"> | **1 rög** (alapegység) | A legkisebb címlet — az árképzés alapja |
+| **Gyémánt** | <img src="../assets/diamond.webp" style="height:24px;image-rendering:pixelated"> | **9 rög** | 9 gyémántrögből állítható össze |
+| **Gyémánt blokk** | <img src="../assets/diamond_block.webp" style="height:24px;image-rendering:pixelated"> | **81 rög** (9×9) | 9 gyémántból áll össze — a legnagyobb címlet |
+
+#### Gyémánt craftolása gyémántrögből
+
+<div class="crafting-container">
+<div class="crafting-header">Barkácsolás</div>
+<table class="crafting-grid">
+<tr>
+<td><img src="../assets/diamond_nugget.png" title="Gyémántrög"></td>
+<td><img src="../assets/diamond_nugget.png" title="Gyémántrög"></td>
+<td><img src="../assets/diamond_nugget.png" title="Gyémántrög"></td>
+</tr>
+<tr>
+<td><img src="../assets/diamond_nugget.png" title="Gyémántrög"></td>
+<td><img src="../assets/diamond_nugget.png" title="Gyémántrög"></td>
+<td><img src="../assets/diamond_nugget.png" title="Gyémántrög"></td>
+</tr>
+<tr>
+<td><img src="../assets/diamond_nugget.png" title="Gyémántrög"></td>
+<td><img src="../assets/diamond_nugget.png" title="Gyémántrög"></td>
+<td><img src="../assets/diamond_nugget.png" title="Gyémántrög"></td>
+</tr>
+</table>
+</div>
+
+**Recept:** 9 gyémántrög = 1 gyémánt
+
+!!! tip "Miért gyémántrög?"
+    A gyémántrög segítségével pontosabb árakat tudsz megadni a [ládaboltodban](piacter.md). Ha például egy termék 3 rögöt ér, azt eddig nem lehetett kifejezni — most viszont igen. Az árképzés alapja mindig a **gyémántrög**.
 
 ### Egyenleg és nyilvántartás
 
