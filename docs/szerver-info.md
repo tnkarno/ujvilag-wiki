@@ -75,6 +75,7 @@ A szerveren **kevés plugin fut**, és mindegyik a játékélmény kiszolgálás
 | [Kocsis rendszer](utazas.md#kocsis-rendszer) | Utazási hálózat |
 | [Ládaboltok](piacter.md) | Játékos-vezérelt kereskedelem |
 | [Ősi bűvölés](osi-mestersegek.md) | Végjáték tartalom |
+| [Álmok-Ura](almok-ura.md) | Közösségi alvásrendszer (fele elég, AFK nem számít) |
 | Voice chat | Proximity voice kommunikáció |
 | SkinRestorer | Skin kezelés |
 | Interaktív chat | Megemlítés, tárgy linkelés |
