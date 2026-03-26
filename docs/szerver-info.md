@@ -36,7 +36,21 @@ A Ryzen 9 9950X egymagos teljesítménye a jelenlegi csúcskategória — a Mine
 
 ## Paper és a technikai limitációk
 
-A szerver **Paper**-en fut, ami számos optimalizációt biztosít a stabil 20 TPS fenntartásához. Ennek azonban vannak következményei:
+A szerver **Paper**-en fut, ami számos optimalizációt biztosít a stabil 20 TPS fenntartásához.
+
+### Optimalizációs beállítások
+
+Az alábbi `spigot.yml` értékek eltérnek az alapértelmezettől a szerver teljesítményének javítása érdekében:
+
+| Beállítás | Alapértelmezett | Szerver értéke | Hatás |
+|---|---|---|---|
+| `view-distance` | `default` (10) | **18** | Nagyobb látótávolság |
+| `simulation-distance` | `default` (10) | **8** | Kisebb szimulációs távolság, kevesebb terhelés |
+| `merge-radius.item` | 0.5 | **3.5** | Tárgyak nagyobb távolságból olvadnak össze |
+| `merge-radius.exp` | -1 | **4.0** | XP gömbök 4 blokkon belül összeolvadnak |
+| `ticks-per.hopper-check` | 1 | **8** | Hopperek ritkábban ellenőriznek, kevesebb lag |
+
+Ennek azonban vannak következményei:
 
 **Gigantikus farmok korlátozottak.** A Paper bizonyos vanilla mechanikákat módosít a teljesítmény érdekében, ami azt jelenti, hogy a legnagyobb technikai farmok (pl. 0-tick farmok, bizonyos duplication glitch-ek) nem fognak működni.
 
