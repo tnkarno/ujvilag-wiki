@@ -28,19 +28,34 @@ jobs:
 
           # --- Parse fields from the GitHub issue form body ---
           # GitHub form issues use "### Label\n\nValue" format
+          # Using awk to avoid sed issues with special characters in labels
           parse_field() {
             local label="$1"
-            echo "$ISSUE_BODY" | sed -n "/### ${label}/,/### /{/### ${label}/d;/### /d;p;}" | sed '/^$/d'
+            echo "$ISSUE_BODY" | awk -v label="### $label" '
+              $0 == label { found=1; next }
+              found && /^### / { exit }
+              found && NF { print }
+            '
+          }
+
+          # For multiline fields (body content), preserve empty lines too
+          parse_field_multiline() {
+            local label="$1"
+            echo "$ISSUE_BODY" | awk -v label="### $label" '
+              $0 == label { found=1; next }
+              found && /^### / { exit }
+              found { print }
+            ' | sed '1{/^$/d}' | sed '${/^$/d}'
           }
 
           PAGE_TYPE=$(parse_field "Oldal típusa")
           PAGE_TITLE=$(parse_field "Cím / Név")
           PAGE_DESC=$(parse_field "Rövid leírás")
-          PAGE_BODY=$(parse_field "Részletes leírás")
+          PAGE_BODY=$(parse_field_multiline "Részletes leírás")
           PAGE_COORDS=$(parse_field "Koordináták")
           PAGE_DIM=$(parse_field "Dimenzió")
           PAGE_BUILDER=$(parse_field "Építő(k)")
-          PAGE_IMAGES=$(parse_field "Képek")
+          PAGE_IMAGES=$(parse_field_multiline "Képek")
 
           echo "Title: $PAGE_TITLE"
           echo "Type: $PAGE_TYPE"
@@ -59,11 +74,8 @@ jobs:
           echo "Slug: $SLUG"
 
           # --- Download images ---
-          IMAGE_URLS=$(echo "$PAGE_IMAGES" | grep -oP 'https://[^\s\)]+\.(png|jpg|jpeg|gif|webp)' || true)
-          # Also match GitHub user-attachments URLs without extension
-          ATTACHMENT_URLS=$(echo "$PAGE_IMAGES" | grep -oP 'https://github\.com/user-attachments/assets/[^\s\)]+' || true)
-
-          ALL_URLS=$(echo -e "${IMAGE_URLS}\n${ATTACHMENT_URLS}" | sort -u | sed '/^$/d')
+          # Match markdown image URLs, <img src="..."> tags, and bare GitHub attachment URLs
+          ALL_URLS=$(echo "$PAGE_IMAGES" | grep -oP '(?:src="|!\[.*?\]\()?\Khttps://[^"\s\)]+' | sort -u || true)
 
           mkdir -p docs/assets/kozossegi
           IMAGE_MD=""
@@ -73,71 +85,65 @@ jobs:
             [ -z "$url" ] && continue
             IMG_COUNT=$((IMG_COUNT + 1))
 
-            # Determine extension from URL or default to png
-            EXT=$(echo "$url" | grep -oP '\.(png|jpg|jpeg|gif|webp)$' || echo ".png")
-            [ "$EXT" = ".png" ] || true  # ensure EXT has the dot
-            if [[ "$EXT" != .* ]]; then
-              EXT=".${EXT}"
-            fi
+            # Determine extension from Content-Type header, fallback to png
+            CONTENT_TYPE=$(curl -sIL "$url" | grep -i '^content-type:' | tail -1 | tr -d '\r')
+            case "$CONTENT_TYPE" in
+              *jpeg*|*jpg*) EXT=".jpg" ;;
+              *gif*)        EXT=".gif" ;;
+              *webp*)       EXT=".webp" ;;
+              *)            EXT=".png" ;;
+            esac
 
             FILENAME="${SLUG}-${IMG_COUNT}${EXT}"
             echo "Downloading image ${IMG_COUNT}: ${url}"
             curl -sL -o "docs/assets/kozossegi/${FILENAME}" "$url" || true
 
-            IMAGE_MD="${IMAGE_MD}
-          ![${PAGE_TITLE} - ${IMG_COUNT}. kép](../assets/kozossegi/${FILENAME}){ loading=lazy }
+            IMAGE_MD="${IMAGE_MD}![${PAGE_TITLE} - ${IMG_COUNT}. kép](../assets/kozossegi/${FILENAME}){ loading=lazy }
+
           "
           done <<< "$ALL_URLS"
 
-          # --- Build meta info block ---
-          TODAY=$(date +%Y-%m-%d)
-          META="!!! info \"Információ\"\n"
-          META="${META}    - **Típus:** ${PAGE_TYPE}\n"
-          META="${META}    - **Építő(k):** ${PAGE_BUILDER}\n"
-
-          if [ -n "$PAGE_COORDS" ] && [ "$PAGE_COORDS" != "_No response_" ]; then
-            META="${META}    - **Koordináták:** ${PAGE_COORDS}\n"
-          fi
-          if [ -n "$PAGE_DIM" ] && [ "$PAGE_DIM" != "_No response_" ] && [ "$PAGE_DIM" != "None" ]; then
-            META="${META}    - **Dimenzió:** ${PAGE_DIM}\n"
-          fi
-
-          META="${META}    - **Hozzáadva:** ${TODAY}\n"
-          META="${META}    - **Beküldő:** @${ISSUE_AUTHOR}\n"
-
           # --- Create the wiki page ---
+          TODAY=$(date +%Y-%m-%d)
           PAGE_FILE="docs/kozossegi/${SLUG}.md"
 
-          cat > "$PAGE_FILE" << PAGEEOF
-          # ${PAGE_TITLE}
-
-          > *${PAGE_DESC}*
-
-          [← Vissza a közösségi oldalakhoz](index.md)
-
-          ---
-
-          $(echo -e "$META")
-
-          ---
-
-          ${PAGE_BODY}
-          PAGEEOF
+          {
+            echo "# ${PAGE_TITLE}"
+            echo ""
+            echo "> *${PAGE_DESC}*"
+            echo ""
+            echo "[← Vissza a közösségi oldalakhoz](index.md)"
+            echo ""
+            echo "---"
+            echo ""
+            echo '!!! info "Információ"'
+            echo "    - **Típus:** ${PAGE_TYPE}"
+            echo "    - **Építő(k):** ${PAGE_BUILDER}"
+            if [ -n "$PAGE_COORDS" ] && [ "$PAGE_COORDS" != "_No response_" ]; then
+              echo "    - **Koordináták:** ${PAGE_COORDS}"
+            fi
+            if [ -n "$PAGE_DIM" ] && [ "$PAGE_DIM" != "_No response_" ] && [ "$PAGE_DIM" != "None" ]; then
+              echo "    - **Dimenzió:** ${PAGE_DIM}"
+            fi
+            echo "    - **Hozzáadva:** ${TODAY}"
+            echo "    - **Beküldő:** @${ISSUE_AUTHOR}"
+            echo ""
+            echo "---"
+            echo ""
+            echo "${PAGE_BODY}"
+          } > "$PAGE_FILE"
 
           # Add images section if there are images
-          if [ $IMG_COUNT -gt 0 ]; then
-            cat >> "$PAGE_FILE" << IMGEOF
-
-          ---
-
-          ## Képek
-
-          ${IMAGE_MD}
-          IMGEOF
+          if [ "$IMG_COUNT" -gt 0 ]; then
+            {
+              echo ""
+              echo "---"
+              echo ""
+              echo "## Képek"
+              echo ""
+              echo "${IMAGE_MD}"
+            } >> "$PAGE_FILE"
           fi
-
-          # Remove leading whitespace from heredoc
-          sed -i 's/^          //' "$PAGE_FILE"
 
           # --- Update community index page ---
           INDEX_FILE="docs/kozossegi/index.md"
@@ -148,9 +154,17 @@ jobs:
           fi
 
           # --- Update mkdocs.yml nav ---
-          # Add the new page under Közösségi tartalom section
-          NAV_ENTRY="      - ${PAGE_TITLE}: kozossegi/${SLUG}.md"
-          sed -i "/- kozossegi\/index.md/a\\${NAV_ENTRY}" mkdocs.yml
+          python3 -c "
+          import yaml, sys
+          with open('mkdocs.yml', 'r') as f:
+              data = yaml.safe_load(f)
+          for item in data['nav']:
+              if isinstance(item, dict) and 'Közösségi tartalom' in item:
+                  item['Közösségi tartalom'].append({'${PAGE_TITLE}': 'kozossegi/${SLUG}.md'})
+                  break
+          with open('mkdocs.yml', 'w') as f:
+              yaml.dump(data, f, allow_unicode=True, default_flow_style=False, sort_keys=False)
+          "
 
           # --- Create branch and PR ---
           BRANCH="kozossegi/${SLUG}"
@@ -163,8 +177,7 @@ jobs:
 
           gh pr create \
             --title "Közösségi oldal: ${PAGE_TITLE}" \
-            --body "$(cat <<EOF
-          ## Közösségi oldal hozzáadása
+            --body "## Közösségi oldal hozzáadása
 
           - **Cím:** ${PAGE_TITLE}
           - **Típus:** ${PAGE_TYPE}
@@ -174,9 +187,7 @@ jobs:
           Closes #${ISSUE_NUMBER}
 
           ---
-          *Automatikusan generálva az approve címke alapján.*
-          EOF
-          )"
+          *Automatikusan generálva az approve címke alapján.*"
 
           # --- Comment on the issue ---
           PR_URL=$(gh pr view "$BRANCH" --json url -q '.url')
