@@ -161,10 +161,20 @@ jobs:
           BRANCH="kozossegi/${SLUG}"
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
+
+          # Delete remote branch if it exists (re-run of same issue)
+          git push origin --delete "$BRANCH" 2>/dev/null || true
+
           git checkout -b "$BRANCH"
           git add docs/kozossegi/ docs/assets/kozossegi/ mkdocs.yml
           git commit -m "Közösségi oldal: ${PAGE_TITLE} (#${ISSUE_NUMBER})"
           git push origin "$BRANCH"
+
+          # Close existing PR for this branch if any (re-run scenario)
+          EXISTING_PR=$(gh pr list --head "$BRANCH" --json number -q '.[0].number' 2>/dev/null || true)
+          if [ -n "$EXISTING_PR" ]; then
+            gh pr close "$EXISTING_PR" --comment "Újragenerálva." || true
+          fi
 
           gh pr create \
             --title "Közösségi oldal: ${PAGE_TITLE}" \
