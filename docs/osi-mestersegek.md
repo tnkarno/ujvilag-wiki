@@ -68,7 +68,8 @@ Minden mesterség megszerzéséhez teljesítened kell egy **gyűjtési/elérési
 | Erő (Power — íj) | V (5) | ✓ |
 | Szikrából pattant (Fire Aspect) | II (2) | ✓ |
 | Hátralökés (Knockback) | II (2) | ✓ |
-| *és további fegyver enchantok* | | |
+| Zsákmányolás (Looting) | III (3) | ✓ |
+| Suhintás (Sweeping Edge) | III (3) | ✓ |
 
 **Tutorial — Hogyan szerezz mob fejeket:**
 A legtöbb mob fejet úgy kapod, hogy az adott mobot egy **Charged Creeper** robbanása öli meg. Ez a vanilla Minecraft mechanika — villám kell a creeperhez (trident + Channeling enchant, vagy villámvihar). Egyes fejek (Wither Skeleton, Ender Dragon) más módon szerezhetők meg.
