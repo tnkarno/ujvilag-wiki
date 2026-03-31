@@ -8,7 +8,7 @@
 
 ## Hogyan küldj be tartalmat?
 
-1. Nyiss egy [új issue-t a GitHub-on](../../issues/new?template=kozossegi-oldal.yml) a "Közösségi oldal beküldése" sablonnal
+1. Nyiss egy [új issue-t a GitHub-on](https://github.com/tnkarno/ujvilag-wiki/issues/new?template=kozossegi-oldal.yml) a "Közösségi oldal beküldése" sablonnal
 2. Töltsd ki az űrlapot — adj meg címet, leírást, koordinátákat és képeket
 3. Várd meg, amíg az admin jóváhagyja
 4. A jóváhagyott oldal automatikusan megjelenik a wikin!
