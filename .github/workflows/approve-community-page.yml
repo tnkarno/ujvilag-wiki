@@ -154,17 +154,8 @@ jobs:
           fi
 
           # --- Update mkdocs.yml nav ---
-          python3 -c "
-          import yaml, sys
-          with open('mkdocs.yml', 'r') as f:
-              data = yaml.safe_load(f)
-          for item in data['nav']:
-              if isinstance(item, dict) and 'Közösségi tartalom' in item:
-                  item['Közösségi tartalom'].append({'${PAGE_TITLE}': 'kozossegi/${SLUG}.md'})
-                  break
-          with open('mkdocs.yml', 'w') as f:
-              yaml.dump(data, f, allow_unicode=True, default_flow_style=False, sort_keys=False)
-          "
+          # Insert new page entry after the kozossegi/index.md line
+          sed -i "/kozossegi\/index.md/a\\      - ${PAGE_TITLE}: kozossegi/${SLUG}.md" mkdocs.yml
 
           # --- Create branch and PR ---
           BRANCH="kozossegi/${SLUG}"
