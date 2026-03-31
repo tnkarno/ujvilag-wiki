@@ -45,6 +45,8 @@ nav:
   - Szabályzat: szabalyzat.md
   - Parancsok: parancsok.md
   - Szerver infó: szerver-info.md
+  - Közösségi tartalom:
+      - kozossegi/index.md
   - Blog:
       - blog/index.md
 

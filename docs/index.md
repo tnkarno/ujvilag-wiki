@@ -26,6 +26,7 @@ A szerver középkori fantasy hangulatot áraszt: a rangok, a címek, a főváro
 | [Szabályzat](szabalyzat.md) | Szerver szabályok |
 | [Parancsok](parancsok.md) | Teljes parancslista kategóriánként |
 | [Szerver infó](szerver-info.md) | Technikai adatok, hosting, csatlakozás |
+| [Közösségi tartalom](kozossegi/index.md) | Játékosok által beküldött farmok, útmutatók, építmények |
 
 ---
 

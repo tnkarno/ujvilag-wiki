@@ -1,0 +1,184 @@
+name: Közösségi oldal létrehozása
+
+on:
+  issues:
+    types: [labeled]
+
+permissions:
+  contents: write
+  pull-requests: write
+  issues: write
+
+jobs:
+  create-community-page:
+    if: github.event.label.name == 'approve'
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Parse issue and create wiki page
+        env:
+          ISSUE_BODY: ${{ github.event.issue.body }}
+          ISSUE_NUMBER: ${{ github.event.issue.number }}
+          ISSUE_AUTHOR: ${{ github.event.issue.user.login }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -euo pipefail
+
+          # --- Parse fields from the GitHub issue form body ---
+          # GitHub form issues use "### Label\n\nValue" format
+          parse_field() {
+            local label="$1"
+            echo "$ISSUE_BODY" | sed -n "/### ${label}/,/### /{/### ${label}/d;/### /d;p;}" | sed '/^$/d'
+          }
+
+          PAGE_TYPE=$(parse_field "Oldal típusa")
+          PAGE_TITLE=$(parse_field "Cím / Név")
+          PAGE_DESC=$(parse_field "Rövid leírás")
+          PAGE_BODY=$(parse_field "Részletes leírás")
+          PAGE_COORDS=$(parse_field "Koordináták")
+          PAGE_DIM=$(parse_field "Dimenzió")
+          PAGE_BUILDER=$(parse_field "Építő(k)")
+          PAGE_IMAGES=$(parse_field "Képek")
+
+          echo "Title: $PAGE_TITLE"
+          echo "Type: $PAGE_TYPE"
+
+          # --- Generate slug from title ---
+          SLUG=$(echo "$PAGE_TITLE" | \
+            sed 'y/áéíóöőúüűÁÉÍÓÖŐÚÜŰ/aeiooouuuAEIOOOUUU/' | \
+            tr '[:upper:]' '[:lower:]' | \
+            sed 's/[^a-z0-9 ]//g' | \
+            sed 's/  */ /g' | \
+            sed 's/ /-/g' | \
+            sed 's/^-//;s/-$//')
+
+          # Append issue number for uniqueness
+          SLUG="${SLUG}-${ISSUE_NUMBER}"
+          echo "Slug: $SLUG"
+
+          # --- Download images ---
+          IMAGE_URLS=$(echo "$PAGE_IMAGES" | grep -oP 'https://[^\s\)]+\.(png|jpg|jpeg|gif|webp)' || true)
+          # Also match GitHub user-attachments URLs without extension
+          ATTACHMENT_URLS=$(echo "$PAGE_IMAGES" | grep -oP 'https://github\.com/user-attachments/assets/[^\s\)]+' || true)
+
+          ALL_URLS=$(echo -e "${IMAGE_URLS}\n${ATTACHMENT_URLS}" | sort -u | sed '/^$/d')
+
+          mkdir -p docs/assets/kozossegi
+          IMAGE_MD=""
+          IMG_COUNT=0
+
+          while IFS= read -r url; do
+            [ -z "$url" ] && continue
+            IMG_COUNT=$((IMG_COUNT + 1))
+
+            # Determine extension from URL or default to png
+            EXT=$(echo "$url" | grep -oP '\.(png|jpg|jpeg|gif|webp)$' || echo ".png")
+            [ "$EXT" = ".png" ] || true  # ensure EXT has the dot
+            if [[ "$EXT" != .* ]]; then
+              EXT=".${EXT}"
+            fi
+
+            FILENAME="${SLUG}-${IMG_COUNT}${EXT}"
+            echo "Downloading image ${IMG_COUNT}: ${url}"
+            curl -sL -o "docs/assets/kozossegi/${FILENAME}" "$url" || true
+
+            IMAGE_MD="${IMAGE_MD}
+          ![${PAGE_TITLE} - ${IMG_COUNT}. kép](../assets/kozossegi/${FILENAME}){ loading=lazy }
+          "
+          done <<< "$ALL_URLS"
+
+          # --- Build meta info block ---
+          TODAY=$(date +%Y-%m-%d)
+          META="!!! info \"Információ\"\n"
+          META="${META}    - **Típus:** ${PAGE_TYPE}\n"
+          META="${META}    - **Építő(k):** ${PAGE_BUILDER}\n"
+
+          if [ -n "$PAGE_COORDS" ] && [ "$PAGE_COORDS" != "_No response_" ]; then
+            META="${META}    - **Koordináták:** ${PAGE_COORDS}\n"
+          fi
+          if [ -n "$PAGE_DIM" ] && [ "$PAGE_DIM" != "_No response_" ] && [ "$PAGE_DIM" != "None" ]; then
+            META="${META}    - **Dimenzió:** ${PAGE_DIM}\n"
+          fi
+
+          META="${META}    - **Hozzáadva:** ${TODAY}\n"
+          META="${META}    - **Beküldő:** @${ISSUE_AUTHOR}\n"
+
+          # --- Create the wiki page ---
+          PAGE_FILE="docs/kozossegi/${SLUG}.md"
+
+          cat > "$PAGE_FILE" << PAGEEOF
+          # ${PAGE_TITLE}
+
+          > *${PAGE_DESC}*
+
+          [← Vissza a közösségi oldalakhoz](index.md)
+
+          ---
+
+          $(echo -e "$META")
+
+          ---
+
+          ${PAGE_BODY}
+          PAGEEOF
+
+          # Add images section if there are images
+          if [ $IMG_COUNT -gt 0 ]; then
+            cat >> "$PAGE_FILE" << IMGEOF
+
+          ---
+
+          ## Képek
+
+          ${IMAGE_MD}
+          IMGEOF
+          fi
+
+          # Remove leading whitespace from heredoc
+          sed -i 's/^          //' "$PAGE_FILE"
+
+          # --- Update community index page ---
+          INDEX_FILE="docs/kozossegi/index.md"
+          NEW_ROW="| [${PAGE_TITLE}](${SLUG}.md) | ${PAGE_TYPE} | ${PAGE_BUILDER} | ${TODAY} |"
+
+          if [ -f "$INDEX_FILE" ]; then
+            echo "$NEW_ROW" >> "$INDEX_FILE"
+          fi
+
+          # --- Update mkdocs.yml nav ---
+          # Add the new page under Közösségi tartalom section
+          NAV_ENTRY="      - ${PAGE_TITLE}: kozossegi/${SLUG}.md"
+          sed -i "/- kozossegi\/index.md/a\\${NAV_ENTRY}" mkdocs.yml
+
+          # --- Create branch and PR ---
+          BRANCH="kozossegi/${SLUG}"
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git checkout -b "$BRANCH"
+          git add docs/kozossegi/ docs/assets/kozossegi/ mkdocs.yml
+          git commit -m "Közösségi oldal: ${PAGE_TITLE} (#${ISSUE_NUMBER})"
+          git push origin "$BRANCH"
+
+          gh pr create \
+            --title "Közösségi oldal: ${PAGE_TITLE}" \
+            --body "$(cat <<EOF
+          ## Közösségi oldal hozzáadása
+
+          - **Cím:** ${PAGE_TITLE}
+          - **Típus:** ${PAGE_TYPE}
+          - **Építő(k):** ${PAGE_BUILDER}
+          - **Beküldő:** @${ISSUE_AUTHOR}
+
+          Closes #${ISSUE_NUMBER}
+
+          ---
+          *Automatikusan generálva az approve címke alapján.*
+          EOF
+          )"
+
+          # --- Comment on the issue ---
+          PR_URL=$(gh pr view "$BRANCH" --json url -q '.url')
+          gh issue comment "$ISSUE_NUMBER" \
+            --body "A közösségi oldal elkészült és PR-ként beküldésre került: ${PR_URL} Amint a PR merge-elve lesz, az oldal megjelenik a wikin!"

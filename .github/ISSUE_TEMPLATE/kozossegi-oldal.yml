@@ -1,0 +1,109 @@
+name: "Közösségi oldal beküldése"
+description: "Küldj be farmot, útmutatót vagy egyéb tartalmat a wikire"
+title: "[Közösségi] "
+labels: ["kozossegi-oldal"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## Közösségi tartalom beküldése
+
+        Köszönjük, hogy hozzájárulsz a wikihez! Töltsd ki az alábbi mezőket, és az admin jóváhagyása után az oldalad automatikusan megjelenik a wikin.
+
+  - type: dropdown
+    id: type
+    attributes:
+      label: Oldal típusa
+      description: Milyen tartalmat szeretnél beküldeni?
+      options:
+        - Farm
+        - Útmutató
+        - Építmény
+        - Egyéb
+    validations:
+      required: true
+
+  - type: input
+    id: title
+    attributes:
+      label: Cím / Név
+      description: Az oldal címe (pl. "Vas Farm a Spawnnál")
+      placeholder: "pl. Vas Farm a Spawnnál"
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Rövid leírás
+      description: Egy-két mondatos összefoglaló, ami megjelenik a listázásnál
+      placeholder: "pl. Automatikus vas farm a spawn közelében, óránként ~300 vas."
+    validations:
+      required: true
+
+  - type: textarea
+    id: body
+    attributes:
+      label: Részletes leírás
+      description: "Az oldal teljes tartalma. Használhatsz Markdown formázást (címsorok, listák, táblázatok). Ha farm, írd le hogyan kell használni!"
+      placeholder: |
+        ## Használat
+
+        1. Menj le a lépcsőn
+        2. Állj a kijelölt helyre
+        3. Várj amíg a vasgolemek megjelennek
+
+        ## Fontos tudnivalók
+
+        - Ne építs a farm 128 blokkos körzetében
+        - AFK-zni a kijelölt helyen érdemes
+    validations:
+      required: true
+
+  - type: input
+    id: coordinates
+    attributes:
+      label: Koordináták
+      description: A helyszín koordinátái (ha releváns)
+      placeholder: "pl. X: 1234, Z: -567"
+    validations:
+      required: false
+
+  - type: dropdown
+    id: dimension
+    attributes:
+      label: Dimenzió
+      description: Melyik dimenzióban található?
+      options:
+        - Overworld
+        - Nether
+        - The End
+    validations:
+      required: false
+
+  - type: input
+    id: builder
+    attributes:
+      label: "Építő(k)"
+      description: Ki építette? (Minecraft felhasználónevek, vesszővel elválasztva)
+      placeholder: "pl. Jansen16, PlayerTwo"
+    validations:
+      required: true
+
+  - type: textarea
+    id: images
+    attributes:
+      label: Képek
+      description: "Húzz ide képeket vagy illeszd be őket. Több kép is megadható!"
+      placeholder: "Húzz ide képeket..."
+    validations:
+      required: false
+
+  - type: textarea
+    id: notes
+    attributes:
+      label: Megjegyzés az adminnak
+      description: Bármi egyéb, amit az admin tudtára szeretnél adni (nem jelenik meg a wikin)
+      placeholder: "pl. A farm még épül, de a fő része kész van."
+    validations:
+      required: false
