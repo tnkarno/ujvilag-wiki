@@ -9,6 +9,10 @@ permissions:
   pull-requests: write
   issues: write
 
+concurrency:
+  group: community-page-creation
+  cancel-in-progress: false
+
 jobs:
   create-community-page:
     if: github.event.label.name == 'approve'
