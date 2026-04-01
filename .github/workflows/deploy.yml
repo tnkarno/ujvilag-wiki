@@ -48,7 +48,7 @@ jobs:
   notify:
     runs-on: ubuntu-latest
     needs: deploy
-    if: ${{ secrets.DISCORD_WEBHOOK_URL != '' }}
+    if: success()
     steps:
       - uses: actions/checkout@v4
         with:
@@ -60,6 +60,12 @@ jobs:
           SITE_URL: "https://tnkarno.github.io/ujvilag-wiki"
         run: |
           set -euo pipefail
+
+          # Skip if no webhook configured
+          if [ -z "$DISCORD_WEBHOOK_URL" ]; then
+            echo "No DISCORD_WEBHOOK_URL secret set, skipping."
+            exit 0
+          fi
 
           # Get new .md files added in this push
           COMMUNITY_FILES=$(git diff --name-only --diff-filter=A HEAD~1 HEAD -- 'docs/kozossegi/*.md' | grep -v 'index.md' || true)
