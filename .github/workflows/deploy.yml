@@ -90,8 +90,19 @@ jobs:
           # Notify for each new blog post
           for file in $BLOG_FILES; do
             TITLE=$(grep -m1 '^# ' "$file" | sed 's/^# //')
-            SLUG=$(basename "$file" .md)
-            PAGE_URL="${SITE_URL}/blog/${SLUG}/"
+            # Extract date from frontmatter and build URL like mkdocs-material does
+            POST_DATE=$(grep -m1 '^date:' "$file" | awk '{print $2}')
+            DATE_PATH=$(echo "$POST_DATE" | sed 's/-/\//g')
+            SLUG=$(python3 -c "
+          import re, unicodedata
+          title = '''$TITLE'''
+          s = re.sub(r'[\U00010000-\U0010ffff]', '', title)
+          s = s.lower().strip()
+          s = re.sub(r'[^\w\s-]', '', s)
+          s = re.sub(r'[\s]+', '-', s)
+          print(s)
+          ")
+            PAGE_URL="${SITE_URL}/blog/${DATE_PATH}/${SLUG}/"
             send_discord "$(jq -Rn --arg t "$TITLE" --arg u "$PAGE_URL" \
               '"📰 **Új bejegyzés a wiki blogon!**\n> **\($t)**\n\($u)"')"
           done
