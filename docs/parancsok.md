@@ -86,6 +86,16 @@ Példa: `/rangom Telepes` vagy `/ar check Úttörő`
 
 ---
 
+## Küldetések
+
+Részletes leírás: [Ősi Bűvölés és Mesterségek](osi-mestersegek.md)
+
+| Parancs | Rövidítések | Leírás |
+|---|---|---|
+| `/quest` | `/kuldetes`, `/kuldi`, `/cimek` | Aktív küldetések és haladás megtekintése |
+
+---
+
 ## Gazdaság
 
 Részletes leírás: [Gazdasági rendszer](gazdasag.md)
@@ -130,6 +140,7 @@ A leggyakrabban használt parancsok egy helyen:
 | `/megallok` | Kocsis megállók listája |
 | `/rangom` | Rang előrehaladás megtekintése |
 | `/bal` | Gyémánt egyenleg |
+| `/quest` | Küldetések és haladás |
 | `/chestshop help` | Ládabolt segítség |
 | `/hk help` | Határkő segítség |
 | `/sb` | Információs panel |
