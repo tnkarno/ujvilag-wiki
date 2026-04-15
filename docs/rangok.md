@@ -36,7 +36,7 @@ Automatikus — minden új játékos Vándorként kezd.
 
 | Kategória | Lehetőségek |
 |---|---|
-| **[Határkő](hatarkovek.md)** | 1 db Vándor határkő (sugár: 16 blokk), 4 naponta 1 gyémánt fenntartás |
+| **[Határkő](hatarkovek.md)** | 1 db Vándor határkő (sugár: 16 blokk), lerakás: 1 gyémántrög, feltöltés: 1 gyémántrög / 7 nap |
 | **[Ládabolt](piacter.md)** | 1 db ládabolt |
 | **[Kocsis](utazas.md#kocsis-rendszer)** | 1 db kocsis megálló |
 | **[Utazás](utazas.md)** | Főváros, fogadók, warps |
@@ -64,7 +64,7 @@ A legfontosabb első lépés egy [határkő elkészítése](hatarkovek.md#hogyan
 
 | Kategória | Változás |
 |---|---|
-| **[Határkő](hatarkovek.md)** | Telepes határkő (sugár: 32), maximum 2 db |
+| **[Határkő](hatarkovek.md)** | Telepes határkő (sugár: 32), maximum 2 db, lerakás: 2 gyémántrög, feltöltés: 2 gyémántrög / 7 nap |
 | **[Ládabolt](piacter.md)** | 16 db |
 | **[Kocsis](utazas.md#kocsis-rendszer)** | 2 db megálló (a másodikat gyémántért kell feloldani) |
 | **[Utazás](utazas.md)** | **Meglátogathat más játékosokat** és elfogadhat látogatókat (költsége: ~4 gyémánt) |
@@ -90,7 +90,7 @@ A legnagyobb ugrás a **játékos-látogatás** feloldása. Telepesként végre 
 
 | Kategória | Változás |
 |---|---|
-| **[Határkő](hatarkovek.md)** | Úttörő határkő (sugár: 64), maximum 3 db |
+| **[Határkő](hatarkovek.md)** | Úttörő határkő (sugár: 64), maximum 3 db, lerakás: 3 gyémántrög, feltöltés: 3 gyémántrög / 7 nap |
 | **[Ládabolt](piacter.md)** | 32 db |
 | **[Kocsis](utazas.md#kocsis-rendszer)** | 3 db megálló (a harmadikat is fel kell oldani) |
 | **Egyedi festmény** | 16 db |
@@ -115,7 +115,7 @@ Az Úttörő már komoly gazdasági szereplő a birodalomban. Nagyobb terület, 
 
 | Kategória | Változás |
 |---|---|
-| **[Határkő](hatarkovek.md)** | Őrző határkő (sugár: 128), maximum 4 db |
+| **[Határkő](hatarkovek.md)** | Őrző határkő (sugár: 128), maximum 4 db, lerakás: 4 gyémántrög, feltöltés: 4 gyémántrög / 7 nap |
 | **[Ládabolt](piacter.md)** | 64 db |
 | **[Kocsis](utazas.md#kocsis-rendszer)** | 4 db megálló (feloldás után) |
 | **Egyedi festmény** | 32 db |

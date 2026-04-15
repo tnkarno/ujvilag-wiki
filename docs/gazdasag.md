@@ -88,7 +88,8 @@ A gyémánt valuta értékét az tartja fenn, hogy **rendszeres kiadásaid vanna
 
 | Költség | Mennyiség | Gyakoriság | Részletek |
 |---|---|---|---|
-| [Határkő](hatarkovek.md) fenntartás | 1 gyémánt | 4 naponta | Rangtól függetlenül |
+| [Határkő](hatarkovek.md) lerakás | 1–4 gyémántrög | egyszeri | Rangtól függően |
+| [Határkő](hatarkovek.md) feltöltés | 1–4 gyémántrög | 7 naponta | Rangtól függően |
 | [Kocsis](utazas.md#kocsis-rendszer) utazás | pár gyémánt | alkalmanként | Játékos-látogatás, megálló utazás |
 | Kocsis megálló feloldás | gyémánt | egyszeri | 2., 3., 4. megálló feloldása |
 | [Ősi bűvölés](osi-mestersegek.md) | változó | alkalmanként | Szintemelés egyre drágább |

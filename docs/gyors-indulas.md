@@ -34,7 +34,7 @@
 - [ ] **Bányássz gyémántot** — ez a szerver [valutája](gazdasag.md), minden vásárlásnál szükséged lesz rá
 - [ ] Készíts egy **[határkövet](hatarkovek.md)** (egyedi recept!) — ez védi a területedet és egyben az otthonod is
   - Amint lerakod, máris tudsz hazautazni: `/otthon`
-  - Ne feledd: **4 naponta 1 gyémánttal** kell feltölteni, alap beállítás szerint automatikusan levonja tőled!
+  - Ne feledd: lerakáskor **1+1 gyémántrögöt** von le a rendszer (lerakás + feltöltés), majd **7 naponta 1 gyémántrögöt** automatikusan levon!
 - [ ] Készíts egy **sírhely jegyet** (1 gyémánt + 8 aranyrög) — tartsd az inventorydban, halál esetén megmenti a tárgyaidat
 - [ ] Ha zavar kapcsold ki az **információs panelt**: `/sb` — itt látod az egyenleged, rangod és egyéb hasznos adatokat
 
