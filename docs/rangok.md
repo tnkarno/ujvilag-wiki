@@ -125,6 +125,9 @@ Az Úttörő már komoly gazdasági szereplő a birodalomban. Nagyobb terület, 
 ### Az Őrző különlegessége
 Az Őrző rang nyitja meg az [Ősi Bűvölés és Mesterségek](osi-mestersegek.md) rendszert — ez a szerver végjáték tartalmának gerince. Az Őrzők emellett jogosultak a főváros piacterein bolthelyet foglalni, ami a szerver legforgalmasabb kereskedelmi területe.
 
+!!! note "Csak a rang feltétele érc-alapú"
+    Az 500 kibányászott gyémánt érc **kizárólag az Őrző rang eléréséhez** kell. Maguk az [ősi mesterségek](osi-mestersegek.md) ezután **nincsenek bányászathoz kötve** — bármelyiket megszerezheted külön-külön, tetszőleges sorrendben.
+
 ---
 
 ## Összehasonlító táblázat

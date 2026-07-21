@@ -85,7 +85,7 @@ A fővárosi piactér a szerver központja — ide érkezik minden játékos a `
 
 **Forgalmas hely = több eladás.** Egy jól elhelyezett [kocsis megálló](utazas.md#kocsis-rendszer) a boltod mellett segít, hogy mások könnyebben eljussanak hozzád.
 
-**Védd a boltodat!** A boltod helyét mindenképpen védd [határkővel](hatarkovek.md) — a [szabályzat](szabalyzat.md) szerint védtelen területről lopni szabad.
+**A boltod automatikusan védett.** Amíg egy láda ládaboltként van beállítva, **más nem fér hozzá a tartalmához** — a bolt magától, örökre védett marad. A körülötte lévő **építményt és területet** viszont érdemes [határkővel](hatarkovek.md) levédeni, hogy a bolt környékét se bonthassa le vagy foglalhassa el senki. A védelem [olcsó és automatikus](hatarkovek.md#feltöltési-költség-fenntartás), offline is működik.
 
 ---
 

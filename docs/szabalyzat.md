@@ -31,7 +31,7 @@ Ez egy békés, PvE szerver. Nem lehet más játékost bántalmazni, csapdát á
 ### 5. Védtelen területek
 **Védelem nélküli területről lopni szabad, de emlékezz az 1. szabályra!**
 
-Ha egy terület nincs [határkővel](hatarkovek.md) levédve, technikailag szabad préda. De gondolj bele — te is örülnél, ha a védtelen építményed kifosztanák? Használd a józan eszed.
+Ha egy terület nincs [határkővel](hatarkovek.md) levédve, technikailag szabad préda. De gondolj bele — te is örülnél, ha a védtelen építményed kifosztanák? Használd a józan eszed. A védelem egyébként **olcsó és automatikus** (offline is működik) — [erről a határkő oldalon olvashatsz](hatarkovek.md#feltöltési-költség-fenntartás).
 
 ### 6. Területfoglalás
 **Védelem nélküli területet lefoglalni, lebontani lehet, de ne rongálj (3. szabály)!**

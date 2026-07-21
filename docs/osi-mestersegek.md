@@ -24,6 +24,13 @@ A Régész **küldetéseket** ad neked: minden mesterséghez teljesítened kell 
 
 **/uticelok** -> OsiBuvoles
 
+!!! info "A mesterségek egymástól függetlenek"
+    Nincs kötelező sorrend. **Bármelyik mesterséget megszerezheted külön-külön**,
+    tetszőleges sorrendben, és **ki is hagyhatod azokat, amik nem érdekelnek**.
+    Ha nem szeretsz bányászni, nyugodtan ugord át az Ősi Bányászt, és menj
+    egyből a Harcos, Kovács vagy Kézmíves felé. A cím a hozzá tartozó küldetés
+    teljesítésekor aktiválódik — a többitől függetlenül.
+
 ---
 
 ## A mesterségek
@@ -75,6 +82,10 @@ Minden mesterség megszerzéséhez teljesítened kell egy **küldetést** a Rég
 | Zsákmányolás (Looting) | III (3) | ✓ |
 | Suhintás (Sweeping Edge) | III (3) | ✓ |
 
+!!! note "A pontos felső határokat játékon belül látod"
+    A fegyver- és páncél-enchantok emelt határait a Régész melletti bűvölő
+    asztalnál, játékon belül látod — így mindig az aktuális értékeket ismered.
+
 **Tutorial — Hogyan szerezz mob fejeket:**
 A legtöbb mob fejet úgy kapod, hogy az adott mobot egy **Charged Creeper** robbanása öli meg. Ez a vanilla Minecraft mechanika — villám kell a creeperhez (trident + Channeling enchant, vagy villámvihar). Egyes fejek (Wither Skeleton, Ender Dragon) más módon szerezhetők meg.
 
@@ -92,6 +103,10 @@ A legtöbb mob fejet úgy kapod, hogy az adott mobot egy **Charged Creeper** rob
 | Légzés (Respiration) | III (3) | ✓ |
 | Könnyű esés (Feather Falling) | IV (4) | ✓ |
 | *és további páncél enchantok* | | |
+
+!!! note "A pontos felső határokat játékon belül látod"
+    A fegyver- és páncél-enchantok emelt határait a Régész melletti bűvölő
+    asztalnál, játékon belül látod — így mindig az aktuális értékeket ismered.
 
 **Tutorial — Armor trimek:**
 Az armor trimeket **különféle struktúrákban** találod: Trail Ruins, Desert Temple, Jungle Temple, Ocean Monument, Ancient City, Nether Fortress, Bastion Remnant, End City, stb. Minden struktúra más trim-et tartalmaz. A teljes gyűjteményhez az egész világot be kell járnod!

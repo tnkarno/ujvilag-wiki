@@ -32,19 +32,27 @@ A főváros a szerver központja — a spawn pont, a fő piactér és a közöss
 
 ## Fogadók
 
-A világ négy égtájánál egy-egy fogadó áll, néhány ezer blokkra a spawntól. Ezek segítenek az új játékosoknak **jó lakható területet találni** a különböző biomokban.
+A világ négy égtájánál egy-egy fogadó áll, néhány ezer blokkra a spawntól. Mindegyik **saját stílusban épült**, és a hozzá tartozó biom hangulatát idézi:
 
-| Fogadó | Biom | Parancs | Rövidítések |
-|---|---|---|---|
-| Északi fogadó | Tajga | `/eszakifogado` | `/ef` vagy `/eszak` |
-| Déli fogadó | Sivatag | `/delifogado` | `/df` vagy `/del` |
-| Nyugati fogadó | Badlands | `/nyugatifogado` | `/nf` vagy `/nyugat` |
-| Keleti fogadó | Dzsungel | `/keletifogado` | `/kf` vagy `/kelet` |
+| Fogadó | Égtáj | Biom | Építészeti stílus | Parancs | Rövidítések |
+|---|---|---|---|---|---|
+| Északi fogadó | Észak | Tajga | Viking csarnok | `/eszakifogado` | `/ef` vagy `/eszak` |
+| Déli fogadó | Dél | Sivatag | Piramis | `/delifogado` | `/df` vagy `/del` |
+| Nyugati fogadó | Nyugat | Badlands | Vadnyugati város | `/nyugatifogado` | `/nf` vagy `/nyugat` |
+| Keleti fogadó | Kelet | Dzsungel | Keleti pagoda | `/keletifogado` | `/kf` vagy `/kelet` |
 
-**Költség:** Ingyenes.
+**Költség:** Ingyenes — bármikor, bárhonnan.
+
+### Mire valók a fogadók?
+
+A fogadók **alternatív kiindulópontok** a spawn mellett:
+
+- **Kezdőpont az új játékosoknak.** A négy fogadó közül szabadon választhatsz, és **ingyen odautazhatsz** paranccsal — így nem a zsúfolt spawn közeléből kell nekivágnod, hanem a kedvenc biomodban keresel jó helyet a bázisodnak.
+- **Tehermentesítik a spawnt.** Idővel a spawn környéke betelhet és zsúfolttá válhat. A fogadók négy különböző irányba nyitnak utat, így a birodalom **egyenletesebben terül szét**.
+- **Kereskedelmi gócpontok.** A fogadók köré [piacokat és boltokat](piacter.md) is építhetsz, amelyeket mások **könnyen elérnek** az ingyenes utazással — jó forgalmat hozó helyszínek.
 
 !!! tip "Tipp új játékosoknak"
-    A [Gyors indulás](gyors-indulas.md) oldalon ajánljuk, hogy a fogadókat használd kiindulópontként a tökéletes helyszín megtalálásához. Mindegyik más-más biomban van — válaszd azt, ami a legjobban tetszik!
+    A [Gyors indulás](gyors-indulas.md) oldalon ajánljuk, hogy a fogadókat használd kiindulópontként a tökéletes helyszín megtalálásához. Mindegyik más-más biomban és stílusban épült — válaszd azt, ami a legjobban tetszik!
 
 ---
 

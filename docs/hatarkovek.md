@@ -201,7 +201,18 @@ A lerakás után **7 naponta** automatikusan levonásra kerül a feltöltési d�
 A feltöltés a [gazdasági rendszer](gazdasag.md) egyik sink-je, amely segít fenntartani a gyémánt értékét.
 
 !!! warning "Figyelem!"
-    Ha nem tudod fizetni a feltöltést: A védelem megszűnik, és a területed védtelenné válik! (A szabályzat szerint védtelen területről lopni szabad.)
+    Ha nem tudod fizetni a feltöltést: A védelem megszűnik, és a területed védtelenné válik! (A szabályzat szerint védtelen területről lopni szabad.) Ez csak akkor fordul elő, ha teljesen kifogysz a gyémántból és nem pótolod hosszú ideig.
+
+!!! tip "Nyugalom — a fenntartás magától megy"
+    A feltöltés **automatikus**, és **akkor is működik, amikor offline vagy**.
+    Csak tartsd a gyémántjaidat az **ender ládádban** — a rendszer 7 naponta
+    onnan vonja le a szükséges mennyiséget. Nem kell online lenned, nem kell
+    parancsot beírnod.
+
+    Nagyon olcsó: **kb. 10 gyémánt több mint másfél évnyi** védelmet fedez egy
+    határkőre. Ha elutazol vagy szünetet tartasz, az otthonod akkor is véd
+    marad. Amit építesz, az megmarad — [erről bővebben a gazdasági
+    rendszernél](gazdasag.md).
 
 !!! tip "Tipp"
     Tartsd szemmel a határkő állapotát, és tartsd készenlétben a gyémántrögeidet. Magasabb rangú határkő drágább fenntartást jelent!
