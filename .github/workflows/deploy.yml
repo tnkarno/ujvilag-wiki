@@ -93,7 +93,13 @@ jobs:
             # Extract date from frontmatter and build URL like mkdocs-material does
             POST_DATE=$(grep -m1 '^date:' "$file" | awk '{print $2}')
             DATE_PATH=$(echo "$POST_DATE" | sed 's/-/\//g')
-            SLUG=$(python3 -c "
+            # Prefer an explicit `slug:` from the front matter — the title-based
+            # fallback cannot reliably reproduce mkdocs-material's own slugify
+            # (accents, em-dashes and multiple spaces all diverge). Set a slug
+            # on every post to guarantee the notification URL matches.
+            SLUG=$(grep -m1 '^slug:' "$file" | sed 's/^slug:[[:space:]]*//')
+            if [ -z "$SLUG" ]; then
+              SLUG=$(python3 -c "
           import re, unicodedata
           title = '''$TITLE'''
           s = re.sub(r'[\U00010000-\U0010ffff]', '', title)
@@ -102,6 +108,7 @@ jobs:
           s = re.sub(r'[\s]+', '-', s)
           print(s)
           ")
+            fi
             PAGE_URL="${SITE_URL}/blog/${DATE_PATH}/${SLUG}/"
             send_discord "$(jq -Rn --arg t "$TITLE" --arg u "$PAGE_URL" \
               '"📰 **Új bejegyzés a wiki blogon!**\n> **\($t)**\n\($u)"')"

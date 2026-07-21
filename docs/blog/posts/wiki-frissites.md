@@ -1,5 +1,6 @@
 ---
 date: 2026-07-22
+slug: wiki-frissites
 categories:
   - Hírek
 ---

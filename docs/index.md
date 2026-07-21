@@ -8,7 +8,7 @@ Whitelistes **18+ Java szerver**, ahol a befektetett idő és a közösség szá
 Nincs pay-to-win, nincs PvP, nincs világtörlés — csak egy gondosan felépített
 világ, ahol a **saját tempódban** építesz, kereskedsz és felfedezel.
 
-[:material-discord: Csatlakozz Discordon](https://discord.gg/MdBWZhAgCy){ .md-button .md-button--primary }
+[:fontawesome-brands-discord: Csatlakozz Discordon](https://discord.gg/MdBWZhAgCy){ .md-button .md-button--primary }
 [:material-clipboard-check: Jelentkezz a whitelistre](https://forms.gle/h9J92S4DkaAJ87PA8){ .md-button }
 
 ---
