@@ -125,6 +125,7 @@ A chat támogatja az **interaktív funkciókat**: megemlítés (@játékosnév),
 |---|---|
 | `/sb` | Információs panel ki/be kapcsolása (egyenleg, rang stb.) |
 | `/sit` | Leülés (bárhol!) — ismételt beírás vagy Shift a felálláshoz |
+| `/favago` | Gyors favágás ki/be kapcsolása (alternatíva: `/treechopper toggle`) |
 
 ---
 
