@@ -42,6 +42,81 @@
   text-shadow: 1px 1px 2px #000;
 }
 
+/* --- Személyes checklista (gyors indulás) --- */
+
+.checklist-toolbar {
+  border: 1px solid var(--md-default-fg-color--lightest);
+  border-radius: 8px;
+  padding: 0.8rem 1rem 0.6rem;
+  margin: 1rem 0 1.5rem;
+  background: var(--md-code-bg-color);
+}
+
+.checklist-bar {
+  display: block;
+  height: 8px;
+  border-radius: 4px;
+  background: var(--md-default-fg-color--lightest);
+  overflow: hidden;
+}
+
+.checklist-bar-fill {
+  display: block;
+  height: 100%;
+  width: 0;
+  border-radius: 4px;
+  background: var(--md-accent-fg-color);
+  transition: width 0.25s ease;
+}
+
+.checklist-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 0.7rem;
+}
+
+.checklist-count {
+  font-weight: 700;
+  font-size: 0.75rem;
+  margin-right: auto;
+}
+
+.checklist-btn {
+  font-family: inherit;
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--md-primary-bg-color);
+  background: var(--md-primary-fg-color);
+  border: none;
+  border-radius: 4px;
+  padding: 0.35rem 0.7rem;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.checklist-btn:hover {
+  opacity: 0.8;
+}
+
+.checklist-note {
+  font-size: 0.65rem;
+  color: var(--md-default-fg-color--light);
+  margin: 0.6rem 0 0;
+}
+
+/* Nagyobb kattintható felület a pipához */
+.md-typeset .task-list-control {
+  padding: 0.15rem 0.3rem 0.15rem 0;
+  cursor: pointer;
+}
+
+.md-typeset .task-list-item.task-done {
+  opacity: 0.55;
+  transition: opacity 0.2s;
+}
+
 .crafting-grid td img {
   width: 48px;
   height: 48px;
