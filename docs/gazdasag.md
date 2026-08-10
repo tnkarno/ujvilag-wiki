@@ -119,16 +119,45 @@ A gyémánt valuta értékét az tartja fenn, hogy **rendszeres kiadásaid vanna
 
 ``` mermaid
 flowchart TD
-    A["⛏️ BÁNYÁSZAT\n(gyémánt termelés)"] --> B["💎 JÁTÉKOS EGYENLEG\n(fizikai gyémánt)"]
-    B --> C["🪨 Határkő\nfenntartás\n(sink)"]
-    B --> D["🐴 Kocsis\nutazás\n(sink)"]
-    B --> E["🔮 Ősi\nbűvölés\n(sink)"]
-    C --> F["🚫 GYÉMÁNT ELTŰNIK\n(infláció-védelem)"]
+    A["⛏️ BÁNYÁSZAT<br/>forrás — új gyémánt születik"]
+
+    subgraph KOR ["🔁 Körforgás — a gyémánt csak gazdát cserél"]
+        direction LR
+        B["💎 JÁTÉKOSOK EGYENLEGE<br/>a forgalomban lévő gyémánt"]
+        T["🛒 KERESKEDÉS<br/>ládabolt · alku · /pay"]
+        B -->|vásárlás| T
+        T -->|eladás bevétele| B
+    end
+
+    C["🪨 Határkő<br/>lerakás és fenntartás"]
+    D["🐴 Kocsis<br/>utazás és megállók"]
+    E["🔮 Ősi bűvölés<br/>szintemelés"]
+    F["🚫 SINK — a gyémánt kikerül a forgalomból<br/>infláció-védelem"]
+
+    A -->|termelés| B
+    B --> C
+    B --> D
+    B --> E
+    C --> F
     D --> F
     E --> F
+
+    classDef forras fill:#2e7d32,stroke:#1b5e20,color:#ffffff
+    classDef kozep fill:#4527a0,stroke:#311b92,color:#ffffff
+    classDef csere fill:#0277bd,stroke:#01579b,color:#ffffff
+    classDef sink fill:#c62828,stroke:#8e0000,color:#ffffff
+    class A forras
+    class B kozep
+    class T csere
+    class C,D,E,F sink
 ```
 
-A rendszer tehát **zárt kör**: a gyémánt bányászattal jön létre, különféle szolgáltatások elnyelik, és ez tartja fenn az értékét. Nincs infláció, mert a sink-ek folyamatosan vonják ki a gyémántot a forgalomból.
+A diagramon **két különböző mozgás** látszik:
+
+- **A körforgás (a kiemelt doboz).** A játékosok közti kereskedés során a gyémánt **nem tűnik el, csak gazdát cserél** — kikerül az egyenlegedből, és bekerül valaki máséba. Ez a rész valóban zárt kör: a szerveren lévő gyémánt összmennyiségét nem változtatja meg.
+- **A forrás → sink tengely (zöld → piros).** Új gyémánt **kizárólag bányászattal** keletkezik, és a szolgáltatások (határkő, kocsis, ősi bűvölés) **véglegesen kivonják** a forgalomból. Ez a szakasz egyirányú — ami sinkbe kerül, az nem jön vissza.
+
+A rendszer egyensúlyát e kettő adja: amíg nagyjából annyi gyémánt tűnik el a sinkekben, amennyit a közösség kibányászik, addig a gyémánt **megtartja az értékét**. Emiatt nincs infláció — a sink-ek folyamatosan vonják ki a felesleget, a kereskedés pedig a meglévő készletet mozgatja a játékosok között.
 
 ---
 

@@ -16,7 +16,9 @@
 
 ## Kezdő TODO lista
 
-Új vagy a szerveren? Kövesd ezt a listát és gyorsan megtalálod a helyed a birodalomban!
+Új vagy a szerveren? Kövesd ezt a listát és gyorsan megtalálod a helyed a birodalomban! A pipákat **kikattinthatod** — a böngésződ megjegyzi, hol tartasz, és a **Lista másolása** gombbal bármikor kimásolhatod a saját állásodat (pl. Discordra).
+
+<div class="checklist-toolbar"></div>
 
 ### 1. fázis — Az első nap
 
