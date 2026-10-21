@@ -86,7 +86,7 @@ világ, ahol a **saját tempódban** építesz, kereskedsz és felfedezel.
 | Weboldal | [ujvilag-birodalom](https://sites.google.com/view/ujvilag-birodalom/) |
 | Discord | [discord.gg/MdBWZhAgCy](https://discord.gg/MdBWZhAgCy) |
 | Jelentkezés (whitelist) | [Google Form](https://forms.gle/h9J92S4DkaAJ87PA8) |
-| Szerver verzió | Java 1.21.11 |
+| Szerver verzió | Java 26.3 |
 | Elérhetőség | 0-24, folyamatos üzemelés |
 
 ## Hogyan csatlakozz?
