@@ -11,7 +11,7 @@
 | Adat | Érték |
 |---|---|
 | **Szerver típus** | Minecraft Java, PvE Survival |
-| **Verzió** | 1.21.11 |
+| **Verzió** | 26.3 |
 | **Platform** | Paper |
 | **Elérhetőség** | 0-24 (nonstop) |
 | **Whitelist** | Igen — [jelentkezés szükséges](https://forms.gle/h9J92S4DkaAJ87PA8) |
@@ -97,7 +97,7 @@ Amit **nem** találsz: spawner termelők, automata hopper eladók, NPC boltok, v
 ### Előfeltételek
 
 - Minecraft Java Edition
-- 1.21.11-es verzió
+- 26.3-as verzió
 - 18 éves vagy idősebb
 
 ---

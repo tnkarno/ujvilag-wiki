@@ -9,7 +9,7 @@
 ## Mielőtt csatlakoznál
 
 1. **Jelentkezz a whitelistre** — [Jelentkezési űrlap](https://forms.gle/h9J92S4DkaAJ87PA8)
-2. **Szerver verzió:** Java 1.21.11
+2. **Szerver verzió:** Java 26.3
 3. **Olvasd el a [szabályzatot](szabalyzat.md)** — rövid és lényegre törő
 
 ---
