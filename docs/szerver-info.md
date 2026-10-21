@@ -117,6 +117,7 @@ Ha tetszik a szerver, támogass minket szavazatoddal a szerverlista oldalakon:
 - [mcszerverek.hu](https://www.mcszerverek.hu/szerver/ujvilag--birodalom-571/)
 - [mc-szerverek.hu](https://mc-szerverek.hu/server/3662)
 - [minecraft-multiplayer-servers-list.com](https://hu.minecraft-multiplayer-servers-list.com/server.php?id=13463)
+- [minecraft-mp.com](https://minecraft-mp.com/server-s365646)
 
 ---
 
